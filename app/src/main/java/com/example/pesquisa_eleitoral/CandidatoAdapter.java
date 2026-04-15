@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class CustomBaseAdapter extends BaseAdapter {
+public class CandidatoAdapter extends BaseAdapter {
 
     Context context;
     String listCandidato[];
@@ -17,7 +17,7 @@ public class CustomBaseAdapter extends BaseAdapter {
     int listImg[];
     LayoutInflater inflater;
 
-    public CustomBaseAdapter(Context context, String[] listCandidato, String[] listPartido, int[] listImg){
+    public CandidatoAdapter(Context context, String[] listCandidato, String[] listPartido, int[] listImg){
         this.context = context;
         this.listCandidato = listCandidato;
         this.listPartido = listPartido;
@@ -43,9 +43,9 @@ public class CustomBaseAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = inflater.inflate(R.layout.candidato, null);
-        TextView candidato = (TextView) convertView.findViewById(R.id.candidato_txt_nome);
-        TextView partido = (TextView) convertView.findViewById(R.id.candidato_txt_partido);
-        ImageView img = (ImageView) convertView.findViewById(R.id.candidato_img);
+        TextView candidato = convertView.findViewById(R.id.candidato_txt_nome);
+        TextView partido = convertView.findViewById(R.id.candidato_txt_partido);
+        ImageView img = convertView.findViewById(R.id.candidato_img);
         candidato.setText(listCandidato[position]);
         partido.setText(listPartido[position]);
         img.setImageResource(listImg[position]);

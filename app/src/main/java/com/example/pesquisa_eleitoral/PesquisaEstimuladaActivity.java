@@ -1,6 +1,10 @@
 package com.example.pesquisa_eleitoral;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
@@ -11,11 +15,13 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class PesquisaEstimuladaActivity extends AppCompatActivity {
 
-    String candidato[] = {"Cleber", "Jorginho", "Drummond", "Roberto", "Clovis"};
+    String candidato[] = {"Cleber", "Jorginho", "Drummond", "Roberto", "Clovis", };
     String partido[] = {"PSOL", "PT", "PL", "PCDUB", "MISSAO"};
     int teste_img[]= {R.drawable.urnachan, R.drawable.urnachan, R.drawable.urnachan, R.drawable.urnachan, R.drawable.urnachan};
 
     ListView listView;
+
+    Button btn_proxima;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +32,24 @@ public class PesquisaEstimuladaActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        btn_proxima = findViewById(R.id.pesquisaEstimulada_btn_confirmar);
+
         listView = findViewById(R.id.pesquisaEstimulada_lista);
-        CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(getApplicationContext(), candidato, partido, teste_img);
-        listView.setAdapter(customBaseAdapter);
+        CandidatoAdapter candidatoAdapter = new CandidatoAdapter(getApplicationContext(), candidato, partido, teste_img);
+        listView.setAdapter(candidatoAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println(partido[position]);
+            }
+        });
+
+        btn_proxima.setOnClickListener(v -> {
+            Intent i = new Intent(PesquisaEstimuladaActivity.this, PesquisaProblemasActivity.class);
+            startActivity(i);
+            finish();
+        });
     }
 }

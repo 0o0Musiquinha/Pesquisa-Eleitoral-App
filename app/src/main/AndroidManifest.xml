@@ -12,11 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pesquisa_Eleitoral">
         <activity
+            android:name=".PesquisaProblemasActivity"
+            android:exported="false" />
+        <activity
             android:name=".PesquisaEspontaneaActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
-            android:exported="false" /> <!--PesquisaEstimulada-->
+            android:exported="false" /> <!-- PesquisaEstimulada -->
         <activity
             android:name=".MenuResultadosActivity"
             android:exported="false" />

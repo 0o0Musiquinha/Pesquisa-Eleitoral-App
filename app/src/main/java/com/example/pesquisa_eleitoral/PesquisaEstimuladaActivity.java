@@ -1,6 +1,7 @@
 package com.example.pesquisa_eleitoral;
 
 import android.os.Bundle;
+import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,9 +11,11 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class PesquisaEstimuladaActivity extends AppCompatActivity {
 
-    String teste[] = new String[]{"Cleber", "Jorginho", "Drummond", "Roberto", "Clovis"};
-    int teste_img[]= new int[]{R.drawable.urnachan, R.drawable.urnachan, R.drawable.urnachan, R.drawable.urnachan, R.drawable.urnachan};
+    String candidato[] = {"Cleber", "Jorginho", "Drummond", "Roberto", "Clovis"};
+    String partido[] = {"PSOL", "PT", "PL", "PCDUB", "MISSAO"};
+    int teste_img[]= {R.drawable.urnachan, R.drawable.urnachan, R.drawable.urnachan, R.drawable.urnachan, R.drawable.urnachan};
 
+    ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,5 +26,8 @@ public class PesquisaEstimuladaActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        listView = findViewById(R.id.pesquisaEstimulada_lista);
+        CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(getApplicationContext(), candidato, partido, teste_img);
+        listView.setAdapter(customBaseAdapter);
     }
 }

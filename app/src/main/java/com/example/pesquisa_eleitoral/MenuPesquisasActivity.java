@@ -11,7 +11,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MenuPesquisasActivity extends AppCompatActivity {
 
-    Button btn_estimulada, btn_espontanea,btn_finalizar;
+    Button btn_iniciar, btn_fechar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +24,8 @@ public class MenuPesquisasActivity extends AppCompatActivity {
             return insets;
         });
 
-        btn_estimulada = findViewById(R.id.pesquisa_btn_estimulada);
-        btn_estimulada = findViewById(R.id.pesquisa_btn_estimulada);
-        btn_estimulada = findViewById(R.id.pesquisa_btn_estimulada);
+        btn_iniciar = findViewById(R.id.pesquisa_btn_iniciar);
+        btn_fechar = findViewById(R.id.pesquisa_btn_fechar);
+
     }
 }

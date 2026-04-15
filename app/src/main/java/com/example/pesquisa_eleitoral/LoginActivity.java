@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         } else if(email.equals("entrevistador@gmail.com") && senha.equals("entevistador")){
             Handler h = new Handler();
             h.postDelayed(() -> {
-                Intent i = new Intent(LoginActivity.this, MenuResultadosActivity.class);
+                Intent i = new Intent(LoginActivity.this, MenuPesquisasActivity.class);
                 startActivity(i);
                 finish();
             }, 500);

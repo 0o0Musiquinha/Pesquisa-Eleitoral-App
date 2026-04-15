@@ -1,17 +1,33 @@
 package com.example.pesquisa_eleitoral;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class CustomBaseAdapter extends BaseAdapter {
 
+    Context context;
+    String listCandidato[];
+
+    String listPartido[];
+    int listImg[];
     LayoutInflater inflater;
+
+    public CustomBaseAdapter(Context context, String[] listCandidato, String[] listPartido, int[] listImg){
+        this.context = context;
+        this.listCandidato = listCandidato;
+        this.listPartido = listPartido;
+        this.listImg = listImg;
+        inflater = LayoutInflater.from(context);
+    }
 
     @Override
     public int getCount() {
-        return 0;
+        return listCandidato.length;
     }
 
     @Override
@@ -26,6 +42,13 @@ public class CustomBaseAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        convertView = inflater.inflate(R.layout.candidato, null);
+        TextView candidato = (TextView) convertView.findViewById(R.id.candidato_txt_nome);
+        TextView partido = (TextView) convertView.findViewById(R.id.candidato_txt_partido);
+        ImageView img = (ImageView) convertView.findViewById(R.id.candidato_img);
+        candidato.setText(listCandidato[position]);
+        partido.setText(listPartido[position]);
+        img.setImageResource(listImg[position]);
+        return convertView;
     }
 }

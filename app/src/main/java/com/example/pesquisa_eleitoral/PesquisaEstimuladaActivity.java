@@ -15,9 +15,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class PesquisaEstimuladaActivity extends AppCompatActivity {
 
-    String candidato[] = {"Cleber", "Jorginho", "Drummond", "Roberto", "Clovis", };
-    String partido[] = {"PSOL", "PT", "PL", "PCDUB", "MISSAO"};
-    int teste_img[]= {R.drawable.urnachan, R.drawable.urnachan, R.drawable.urnachan, R.drawable.urnachan, R.drawable.urnachan};
+    String[] candidato = {"Cleber", "Jorginho", "Drummond", "Roberto", "Clovis", "Branco", "Nulo", "Não sei"};
+    String[] partido = {"PSOL", "PT", "PL", "PCDUB", "MISSAO", "", "", ""};
+    int[] teste_img= {R.drawable.urnachan, R.drawable.urnachan, R.drawable.urnachan, R.drawable.urnachan, R.drawable.urnachan,R.drawable.sem_imagem, R.drawable.sem_imagem, R.drawable.sem_imagem};
 
     ListView listView;
 
@@ -42,7 +42,7 @@ public class PesquisaEstimuladaActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println(partido[position]);
+                System.out.println(partido[position] + " - " + candidato[position] + " - " + position);
             }
         });
 

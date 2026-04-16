@@ -5,4 +5,53 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PesquisaEspontaneaActivity"/>
+    tools:context=".PesquisaEspontaneaActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="30dp"
+        android:paddingTop="100dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/pesquisaEspontanea_txt_titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginBottom="150dp"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:text="@string/espontanea_txt_titulo" />
+
+        <TextView
+            android:id="@+id/pesquisaEspontanea_txt_candidato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@string/espontanea_txt_candidato" />
+
+        <EditText
+            android:id="@+id/pesquisaEspontanea_ed_candidato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:layout_marginBottom="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:hint="Politico X"/>
+
+        <Button
+            android:id="@+id/pesquisaEspontanea_btn_confirmar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="90dp"
+            android:layout_marginEnd="90dp"
+            android:text="@string/btn_confirmar" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

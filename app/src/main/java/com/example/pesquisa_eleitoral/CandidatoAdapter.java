@@ -11,10 +11,10 @@ import android.widget.TextView;
 public class CandidatoAdapter extends BaseAdapter {
 
     Context context;
-    String listCandidato[];
+    String[] listCandidato;
 
-    String listPartido[];
-    int listImg[];
+    String[] listPartido;
+    int[] listImg;
     LayoutInflater inflater;
 
     public CandidatoAdapter(Context context, String[] listCandidato, String[] listPartido, int[] listImg){

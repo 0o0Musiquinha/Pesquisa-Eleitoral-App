@@ -3,6 +3,7 @@ package com.example.pesquisa_eleitoral;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,33 +11,36 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MenuPesquisasActivity extends AppCompatActivity {
+public class FinalizarActivity extends AppCompatActivity {
 
-    Button btn_iniciar, btn_fechar;
+    Button btn_finalizar;
+
+    EditText ed_nome, ed_celular;
+
+    String nome, celular;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_menu_pesquisas);
+        setContentView(R.layout.activity_finalizar);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        btn_iniciar = findViewById(R.id.pesquisa_btn_iniciar);
-        btn_fechar = findViewById(R.id.pesquisa_btn_fechar);
+        ed_celular = findViewById(R.id.finalizar_ed_celular);
+        ed_nome = findViewById(R.id.finalizar_ed_nome);
+        btn_finalizar = findViewById(R.id.finalizar_btn_finalizar);
 
-        btn_iniciar.setOnClickListener(v -> {
-            Intent i = new Intent(this, PesquisaEspontaneaActivity.class);
+        btn_finalizar.setOnClickListener(v -> {
+            nome = String.valueOf(ed_nome.getText());
+            celular = String.valueOf(ed_celular.getText());
+
+            Intent i = new Intent(this, MenuPesquisasActivity.class);
             startActivity(i);
             finish();
         });
-
-        btn_fechar.setOnClickListener(v -> {
-            finishAndRemoveTask();
-        });
-
     }
 }

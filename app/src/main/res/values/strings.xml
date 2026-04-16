@@ -13,18 +13,21 @@
 
     <string name="login_hint_email">exemplo@gmail.com</string>
 
-
-    <string name="login_btn_acessar">Acessar</string>
-    <string name="login_btn_encerrar">Encerrar</string>
+    <string name="login_btn_acessar">ACESSAR</string>
+    <string name="login_btn_encerrar">ENCERRAR</string>
 
 
     <!--MENU_PESQUISAS-->
     <string name="pesquisas_txt_eleicao">ELEIÇÕES 2026</string>
     <string name="pesquisas_txt_pesquisas">PESQUISA DE INTENÇÃO</string>
 
-    <string name="pesquisas_btn_estimulada">Pesquisa Estimulada</string>
-    <string name="pesquisas_btn_espontanea">Pesquisa Espontânea</string>
+    <string name="pesquisas_btn_comecar">COMEÇAR PESQUISA</string>
     <string name="pesquisas_btn_finalizar">FINALIZAR</string>
+
+
+    <!--PESQUISA_ESPONTANEA-->
+    <string name="espontanea_txt_titulo">PESQUISA ESPONTÂNEA</string>
+    <string name="espontanea_txt_candidato">Candidato:</string>
 
 
     <!--CANDIDATO-->
@@ -33,5 +36,21 @@
     <string name="candidato_txt_partido">Partido</string>
 
     <!--PESQUISA_ESTIMULADA-->
+    <string name="estimulada_txt_titulo">Pesquisa Estimulada</string>
+
+    <!--PROBLEMAS-->
+    <string name="problemas_txt_titulo">Concernimentos</string>
+
+    <!--PROBLEMA-->
+    <string name="problema_checkbox_problema">Problema</string>
+
+    <!--FINALIZAR-->
+    <string name="finalizar_txt_titulo">DADOS DO ENTREVISTADO</string>
+    <string name="finalizar_txt_nome">Nome do Entrevistado: </string>
+    <string name="finalizar_hint_nome">Entrevistado</string>
+    <string name="finalizar_txt_celular">Celular: </string>
+    <string name="finalizar_hint_celular">999999999</string>
+    <string name="finalizar_btn_finalizar">Finalizar</string>
+
 
 </resources>

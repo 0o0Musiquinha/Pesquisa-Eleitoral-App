@@ -8,16 +8,18 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class CandidatoAdapter extends BaseAdapter {
 
     Context context;
-    String[] listCandidato;
+    List<String> listCandidato;
 
-    String[] listPartido;
-    int[] listImg;
+    List<String> listPartido;
+    List<String> listImg;
     LayoutInflater inflater;
 
-    public CandidatoAdapter(Context context, String[] listCandidato, String[] listPartido, int[] listImg){
+    public CandidatoAdapter(Context context, List<String> listCandidato, List<String> listPartido, List<String> listImg){
         this.context = context;
         this.listCandidato = listCandidato;
         this.listPartido = listPartido;
@@ -27,7 +29,7 @@ public class CandidatoAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return listCandidato.length;
+        return listCandidato.size();
     }
 
     @Override
@@ -46,9 +48,15 @@ public class CandidatoAdapter extends BaseAdapter {
         TextView candidato = convertView.findViewById(R.id.candidato_txt_nome);
         TextView partido = convertView.findViewById(R.id.candidato_txt_partido);
         ImageView img = convertView.findViewById(R.id.candidato_img);
-        candidato.setText(listCandidato[position]);
-        partido.setText(listPartido[position]);
-        img.setImageResource(listImg[position]);
+        candidato.setText(listCandidato.get(position));
+        partido.setText(listPartido.get(position));
+
+        int resId = context.getResources().getIdentifier(
+                listImg.get(position),
+                "drawable",
+                context.getPackageName()
+        );
+        img.setImageResource(resId);
         return convertView;
     }
 }

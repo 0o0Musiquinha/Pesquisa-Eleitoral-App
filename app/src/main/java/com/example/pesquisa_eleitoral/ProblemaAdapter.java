@@ -13,6 +13,8 @@ public class ProblemaAdapter extends BaseAdapter {
 
     Context context;
     String[] listProblema;
+
+    String[] listSelectedProblema;
     LayoutInflater inflater;
 
     public ProblemaAdapter(Context context, String[] listProblema){

@@ -38,7 +38,7 @@ public class PesquisaEspontaneaActivity extends AppCompatActivity {
 
             System.out.println(candidato);
 
-            Intent i = new Intent(this, FinalizarActivity.class);
+            Intent i = new Intent(this, PesquisaEstimuladaActivity.class);
             startActivity(i);
             finish();
         });

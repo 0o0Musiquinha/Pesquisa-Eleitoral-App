@@ -46,7 +46,7 @@ public class PesquisaProblemasActivity extends AppCompatActivity {
         });
 
         btn_proxima.setOnClickListener(v -> {
-            Intent i = new Intent(PesquisaProblemasActivity.this, FinalizarActivity.class);
+            Intent i = new Intent(this, FinalizarActivity.class);
             startActivity(i);
             finish();
         });

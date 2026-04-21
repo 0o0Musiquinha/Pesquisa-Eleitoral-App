@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,11 +37,20 @@ public class PesquisaEspontaneaActivity extends AppCompatActivity {
         btn_confirmar.setOnClickListener(v -> {
             candidato = String.valueOf(ed_politico.getText());
 
-            System.out.println(candidato);
+            System.out.println(candidato + "teste");
 
-            Intent i = new Intent(this, PesquisaEstimuladaActivity.class);
-            startActivity(i);
-            finish();
+            if(!candidato.equals("")){
+                Intent i = new Intent(this, PesquisaEstimuladaActivity.class);
+                i.putExtra("CANDIDATO_ESPONTANEA", candidato);
+                startActivity(i);
+                finish();
+            } else{
+                CharSequence text = "Digite o nome do candidato!!";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(this , text, duration);
+                toast.show();
+            }
+
         });
     }
 }

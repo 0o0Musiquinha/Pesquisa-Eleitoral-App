@@ -21,11 +21,11 @@
             android:name=".PesquisaProblemasActivity"
             android:exported="false" />
         <activity
-            android:name=".PesquisaEspontaneaActivity"
-            android:exported="false" />
+            android:name=".SplashActivity"
+            android:exported="false" /> <!--PesquisaEspontaneaActivity-->
         <activity
             android:name=".PesquisaEstimuladaActivity"
-            android:exported="false" /> <!-- PesquisaEstimulada -->
+            android:exported="false" />
         <activity
             android:name=".MenuResultadosActivity"
             android:exported="false" />
@@ -36,7 +36,7 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".PesquisaEspontaneaActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

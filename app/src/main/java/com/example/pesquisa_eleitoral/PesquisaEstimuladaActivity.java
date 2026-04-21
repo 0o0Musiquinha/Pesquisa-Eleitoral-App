@@ -78,7 +78,7 @@ public class PesquisaEstimuladaActivity extends AppCompatActivity {
         btn_proxima.setOnClickListener(v -> {
             if(candidato_id != 0){
                 Intent i = new Intent(this, PesquisaProblemasActivity.class);
-                i.putExtra("Id_Estimulada", candidato_id);
+                i.putExtra("ID_ESTIMULADA", candidato_id);
                 startActivity(i);
                 finish();
             } else{

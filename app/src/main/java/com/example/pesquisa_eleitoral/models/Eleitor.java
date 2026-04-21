@@ -1,15 +1,32 @@
 package com.example.pesquisa_eleitoral.models;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+@Entity
 public class Eleitor {
 
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "ele_id")
     private int id;
+
+    @ColumnInfo(name = "ele_nome")
     private String nome;
+
+    @ColumnInfo(name = "ele_celular")
     private String celular;
+
+    @ColumnInfo(name = "ele_datahora")
     private DateTimeFormatter dataHora;
+
+    @ColumnInfo(name = "ele_latitude")
     private double latitude;
+
+    @ColumnInfo(name = "ele_longitude")
     private double longitude;
 
     public int getId() {

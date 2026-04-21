@@ -1,48 +1,31 @@
 package com.example.pesquisa_eleitoral.DAO;
 
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.Query;
+
 import com.example.pesquisa_eleitoral.models.Usuario;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
-public class UsuarioDAO {
+@Dao
+public interface UsuarioDAO {
 
-    private Conexao conexao;
-    private Connection conn;
+    @Query("SELECT * FROM Usuario")
+    List<Usuario> getAll();
 
-    public UsuarioDAO() {
-        this.conexao = new Conexao();
-        this.conn = this.conexao.getConexao();
-    }
+    @Query("SELECT * FROM usuario WHERE usu_id IN (:usuarioIds)")
+    List<Usuario> loadAllByIds(int[] usuarioIds);
 
-    public List<Usuario> getUsuarios(String email, String senha){
-        String sql = "SELECT usu_id, usu_email, usu_senha, usu_tipo "
-                + "FROM usuario "
-                + "WHERE usu_email = " + email + " AND usu_senha = " + senha + ";";
-        try{
-            PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            ResultSet rs = stmt.executeQuery();
-            List<Usuario> listaUsuarios = new ArrayList(); //Preparo uma lista de objetos que vou armazenar a consulta
+    @Query("SELECT usu_email, usu_senha, usu_tipo FROM usuario " +
+            "WHERE usu_email = :email AND usu_senha = :senha")
+    Usuario findByEmail(String email, String senha);
 
-            //Percorre rs e salva as informações dentro de um objeto Produto e depois adiciona na lista
-            while(rs.next()){
-                Usuario usuario = new Usuario();
-                usuario.setId(rs.getInt("can_id"));
-                usuario.setEmail(rs.getString("usu_email"));
-                usuario.setSenha(rs.getString("usu_senha"));
-                usuario.setTipo(rs.getInt("usu_tipo"));
+    @Insert
+    void insertAll(Usuario... usuarios);
 
-                listaUsuarios.add(usuario);
-            }
-            return listaUsuarios;
+    @Delete
+    void delete(Usuario usuarios);
 
-        }catch (SQLException ex){
-            System.out.println("Erro ao consultar todos os candidatos: "+ ex.getMessage());
-            return null;
-        }
-    }
 }

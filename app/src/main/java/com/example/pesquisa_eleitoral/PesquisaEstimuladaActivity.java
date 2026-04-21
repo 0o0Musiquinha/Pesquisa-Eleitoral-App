@@ -2,7 +2,6 @@ package com.example.pesquisa_eleitoral;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.telecom.Connection;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -14,16 +13,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.pesquisa_eleitoral.DAO.CandidatoDAO;
-import com.example.pesquisa_eleitoral.DAO.Conexao;
-import com.example.pesquisa_eleitoral.models.Candidato;
+import com.example.pesquisa_eleitoral.Database.AppDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PesquisaEstimuladaActivity extends AppCompatActivity {
 
-    String[] nome = {"Cleber", "Jorginho", "Drummond", "Roberto", "Clovis", "Branco", "Nulo", "Não sei"};
+    String[] nome = {"Naruto", "Cleito", "Bob Esponja", "Alanzoka", "Zeca Urubu", "Branco", "Nulo", "Não sei"};
     String[] partido = {"PSOL", "PT", "PL", "PCDUB", "MISSAO", "", "", ""};
 
     int[] teste_img= {R.drawable.urnachan, R.drawable.urnachan, R.drawable.urnachan, R.drawable.urnachan, R.drawable.urnachan,R.drawable.sem_imagem, R.drawable.sem_imagem, R.drawable.sem_imagem};
@@ -47,10 +44,11 @@ public class PesquisaEstimuladaActivity extends AppCompatActivity {
 
         btn_proxima = findViewById(R.id.pesquisaEstimulada_btn_confirmar);
         listView = findViewById(R.id.pesquisaEstimulada_lista);
-        preencherCandidatos();
+        AppDatabase bd = AppDatabase.getInstance(this);
+        /*preencherCandidatos();*/
 
-        /*CandidatoAdapter candidatoAdapter = new CandidatoAdapter(getApplicationContext(), nome, partido, teste_img);*/
-        CandidatoAdapter candidatoAdapter = new CandidatoAdapter(getApplicationContext(), candidatos_nome, candidatos_partido, candidatos_img);
+        CandidatoAdapter candidatoAdapter = new CandidatoAdapter(getApplicationContext(), nome, partido, teste_img);
+        /*CandidatoAdapter candidatoAdapter = new CandidatoAdapter(getApplicationContext(), candidatos_nome, candidatos_partido, candidatos_img);*/
         listView.setAdapter(candidatoAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -65,18 +63,5 @@ public class PesquisaEstimuladaActivity extends AppCompatActivity {
             startActivity(i);
             finish();
         });
-    }
-
-    private void preencherCandidatos(){
-        CandidatoDAO candidatoDAO = new CandidatoDAO();
-        List<Candidato> listaCandidatos = candidatoDAO.getCandidatos();
-        for(Candidato candidato: listaCandidatos){
-            candidatos_nome.add(candidato.getNome());
-            candidatos_partido.add(candidato.getPartido());
-            candidatos_img.add(candidato.getImg());
-
-        }
-
-
     }
 }

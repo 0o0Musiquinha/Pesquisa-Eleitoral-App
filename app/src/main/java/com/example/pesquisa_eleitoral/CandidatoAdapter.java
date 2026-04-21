@@ -13,13 +13,24 @@ import java.util.List;
 public class CandidatoAdapter extends BaseAdapter {
 
     Context context;
-    List<String> listCandidato;
+    String[] listCandidato;
+    String[] listPartido;
+    int[] listImg;
 
-    List<String> listPartido;
-    List<String> listImg;
+    List<String> listCandidato2;
+    List<String> listPartido2;
+    List<String> listImg2;
     LayoutInflater inflater;
 
     public CandidatoAdapter(Context context, List<String> listCandidato, List<String> listPartido, List<String> listImg){
+        this.context = context;
+        this.listCandidato2 = listCandidato;
+        this.listPartido2 = listPartido;
+        this.listImg2 = listImg;
+        inflater = LayoutInflater.from(context);
+    }
+
+    public CandidatoAdapter(Context context, String[] listCandidato, String[] listPartido, int[] listImg) {
         this.context = context;
         this.listCandidato = listCandidato;
         this.listPartido = listPartido;
@@ -29,7 +40,7 @@ public class CandidatoAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return listCandidato.size();
+        return listCandidato.length;
     }
 
     @Override
@@ -48,15 +59,15 @@ public class CandidatoAdapter extends BaseAdapter {
         TextView candidato = convertView.findViewById(R.id.candidato_txt_nome);
         TextView partido = convertView.findViewById(R.id.candidato_txt_partido);
         ImageView img = convertView.findViewById(R.id.candidato_img);
-        candidato.setText(listCandidato.get(position));
-        partido.setText(listPartido.get(position));
+        candidato.setText(listCandidato[position]);
+        partido.setText(listPartido[position]);
 
-        int resId = context.getResources().getIdentifier(
+        /*int resId = context.getResources().getIdentifier(
                 listImg.get(position),
                 "drawable",
                 context.getPackageName()
         );
-        img.setImageResource(resId);
+        img.setImageResource(resId);*/
         return convertView;
     }
 }

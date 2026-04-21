@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
@@ -13,13 +14,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PesquisaProblemasActivity extends AppCompatActivity {
 
     String[] problema = {"Saneamento", "Poluição", "Segurança", "Empregabilidade", "Moradia", "Urbanização", "Corrupição", "Escala", "Sálario Mínimo", "Insegurança Alimentar"};
-
     ListView listView;
-
     Button btn_proxima;
+    List<String> problemasmarcados;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +41,7 @@ public class PesquisaProblemasActivity extends AppCompatActivity {
         ProblemaAdapter problemaAdapter = new ProblemaAdapter(getApplicationContext(), problema);
         listView.setAdapter(problemaAdapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println(problema[position] + " - " + position);
-            }
-        });
+        problemasmarcados = new ArrayList<>();
 
         btn_proxima.setOnClickListener(v -> {
             Intent i = new Intent(this, FinalizarActivity.class);

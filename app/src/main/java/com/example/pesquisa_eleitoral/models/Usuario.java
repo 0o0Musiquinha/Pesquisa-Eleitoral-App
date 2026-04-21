@@ -1,11 +1,26 @@
 package com.example.pesquisa_eleitoral.models;
 
-import java.time.format.DateTimeFormatter;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Index;
+import androidx.room.PrimaryKey;
+
+@Entity(indices = {@Index(value = {"usu_email"},
+        unique = true)})
 public class Usuario {
+
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "usu_id")
     private int id;
+
+    @ColumnInfo(name = "usu_email")
     private String email;
+
+    @ColumnInfo(name = "usu_senha")
     private String senha;
+
+    @ColumnInfo(name = "usu_tipo")
     private int tipo;
 
     public int getTipo() {

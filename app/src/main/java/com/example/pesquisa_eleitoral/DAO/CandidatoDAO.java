@@ -4,6 +4,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.pesquisa_eleitoral.models.Candidato;
 
@@ -11,7 +12,7 @@ import java.util.List;
 
 @Dao
 public interface CandidatoDAO {
-    @Query("SELECT can_nome, can_partido, can_img FROM candidato")
+    @Query("SELECT * FROM candidato")
     List<Candidato> getAll();
 
     @Query("SELECT * FROM candidato WHERE can_id IN (:candidatoIds)")
@@ -21,8 +22,11 @@ public interface CandidatoDAO {
     Candidato findByName(String nome);
 
     @Insert
-    void insertAll(Candidato... candidatos);
+    void insert(Candidato candidato);
+
+    @Update
+    void update(Candidato candidato);
 
     @Delete
-    void delete(Candidato candidatos);
+    void deleteAll(Candidato... candidatos);
 }

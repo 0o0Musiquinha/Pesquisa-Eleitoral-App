@@ -23,7 +23,7 @@ import com.example.pesquisa_eleitoral.models.Usuario;
         Usuario.class,
         Eleitor.class,
         Problema.class
-}, version = 1)
+}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static volatile AppDatabase INSTANCE;

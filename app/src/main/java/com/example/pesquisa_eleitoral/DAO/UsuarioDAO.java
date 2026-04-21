@@ -18,7 +18,7 @@ public interface UsuarioDAO {
     @Query("SELECT * FROM usuario WHERE usu_id IN (:usuarioIds)")
     List<Usuario> loadAllByIds(int[] usuarioIds);
 
-    @Query("SELECT usu_email, usu_senha, usu_tipo FROM usuario " +
+    @Query("SELECT * FROM usuario " +
             "WHERE usu_email = :email AND usu_senha = :senha")
     Usuario findByEmail(String email, String senha);
 

@@ -8,39 +8,25 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.pesquisa_eleitoral.models.Candidato;
+
 import java.util.List;
 
 public class CandidatoAdapter extends BaseAdapter {
 
     Context context;
-    String[] listCandidato;
-    String[] listPartido;
-    int[] listImg;
-
-    List<String> listCandidato2;
-    List<String> listPartido2;
-    List<String> listImg2;
+    List<Candidato> listCandidatos;
     LayoutInflater inflater;
 
-    public CandidatoAdapter(Context context, List<String> listCandidato, List<String> listPartido, List<String> listImg){
+    public CandidatoAdapter(Context context, List<Candidato> listCandidatos){
         this.context = context;
-        this.listCandidato2 = listCandidato;
-        this.listPartido2 = listPartido;
-        this.listImg2 = listImg;
-        inflater = LayoutInflater.from(context);
-    }
-
-    public CandidatoAdapter(Context context, String[] listCandidato, String[] listPartido, int[] listImg) {
-        this.context = context;
-        this.listCandidato = listCandidato;
-        this.listPartido = listPartido;
-        this.listImg = listImg;
+        this.listCandidatos = listCandidatos;
         inflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return listCandidato.length;
+        return listCandidatos.size();
     }
 
     @Override
@@ -56,18 +42,22 @@ public class CandidatoAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = inflater.inflate(R.layout.candidato, null);
-        TextView candidato = convertView.findViewById(R.id.candidato_txt_nome);
-        TextView partido = convertView.findViewById(R.id.candidato_txt_partido);
-        ImageView img = convertView.findViewById(R.id.candidato_img);
-        candidato.setText(listCandidato[position]);
-        partido.setText(listPartido[position]);
+        Candidato candidato = listCandidatos.get(position);
 
-        /*int resId = context.getResources().getIdentifier(
-                listImg.get(position),
+        TextView candidato_nome = convertView.findViewById(R.id.candidato_txt_nome);
+        TextView candidato_partido = convertView.findViewById(R.id.candidato_txt_partido);
+        ImageView candidato_img = convertView.findViewById(R.id.candidato_img);
+
+        candidato_nome.setText(candidato.getNome());
+        candidato_partido.setText(candidato.getPartido());
+
+        //Transformar a String imagem em um int de modelo legivel ao @drawable do AndroidStudio
+        int img = context.getResources().getIdentifier(
+                candidato.getImg(),
                 "drawable",
                 context.getPackageName()
         );
-        img.setImageResource(resId);*/
+        candidato_img.setImageResource(img);
         return convertView;
     }
 }

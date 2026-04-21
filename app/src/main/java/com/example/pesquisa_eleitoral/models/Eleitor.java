@@ -4,8 +4,6 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 @Entity
 public class Eleitor {
@@ -21,7 +19,7 @@ public class Eleitor {
     private String celular;
 
     @ColumnInfo(name = "ele_datahora")
-    private DateTimeFormatter dataHora;
+    private Long dataHora;
 
     @ColumnInfo(name = "ele_latitude")
     private double latitude;
@@ -53,11 +51,11 @@ public class Eleitor {
         this.celular = celular;
     }
 
-    public DateTimeFormatter getDataHora() {
+    public Long getDataHora() {
         return dataHora;
     }
 
-    public void setDataHora(DateTimeFormatter dataHora) {
+    public void setDataHora(Long dataHora) {
         this.dataHora = dataHora;
     }
 

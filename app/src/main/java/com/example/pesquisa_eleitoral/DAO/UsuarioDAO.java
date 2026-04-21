@@ -20,7 +20,10 @@ public interface UsuarioDAO {
 
     @Query("SELECT * FROM usuario " +
             "WHERE usu_email = :email AND usu_senha = :senha")
-    Usuario findByEmail(String email, String senha);
+    Usuario verifyLogin(String email, String senha);
+
+    @Insert
+    void insert(Usuario usuarios);
 
     @Insert
     void insertAll(Usuario... usuarios);

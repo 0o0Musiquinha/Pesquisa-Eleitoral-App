@@ -14,10 +14,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.pesquisa_eleitoral.Adapter.CandidatoAdapter;
 import com.example.pesquisa_eleitoral.Database.AppDatabase;
 import com.example.pesquisa_eleitoral.models.Candidato;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PesquisaEstimuladaActivity extends AppCompatActivity {

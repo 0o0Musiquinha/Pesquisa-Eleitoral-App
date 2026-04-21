@@ -1,4 +1,4 @@
-package com.example.pesquisa_eleitoral;
+package com.example.pesquisa_eleitoral.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.pesquisa_eleitoral.R;
 import com.example.pesquisa_eleitoral.models.Candidato;
 
 import java.util.List;

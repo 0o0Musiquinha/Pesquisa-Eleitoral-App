@@ -1,4 +1,4 @@
-package com.example.pesquisa_eleitoral;
+package com.example.pesquisa_eleitoral.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
 
-import org.w3c.dom.ls.LSOutput;
+import com.example.pesquisa_eleitoral.R;
 
 import java.util.ArrayList;
 import java.util.List;

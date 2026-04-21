@@ -24,7 +24,7 @@
             android:name=".PesquisaEspontaneaActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".PesquisaEstimuladaActivity"
             android:exported="false" /> <!-- PesquisaEstimulada -->
         <activity
             android:name=".MenuResultadosActivity"
@@ -36,7 +36,7 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".PesquisaEstimuladaActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

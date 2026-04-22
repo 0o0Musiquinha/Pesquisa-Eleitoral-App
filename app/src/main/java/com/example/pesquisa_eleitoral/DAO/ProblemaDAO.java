@@ -22,6 +22,9 @@ public interface ProblemaDAO {
     Problema findByName(String nome);
 
     @Insert
+    void insert(Problema problemas);
+
+    @Insert
     void insertAll(Problema... problemas);
 
     @Delete

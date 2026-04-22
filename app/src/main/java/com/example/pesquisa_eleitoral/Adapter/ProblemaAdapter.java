@@ -7,10 +7,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import com.example.pesquisa_eleitoral.R;
+import com.example.pesquisa_eleitoral.models.Problema;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,12 +20,16 @@ import java.util.List;
 public class ProblemaAdapter extends BaseAdapter {
 
     Context context;
-    String[] listProblema;
 
-    List<String> listSelectedProblema = new ArrayList<>();
+    List<Problema> listProblema;
+
+    public static List<String> listSelectedProblema = new ArrayList<>();
+
+    boolean isSelecionado;
+
     LayoutInflater inflater;
 
-    public ProblemaAdapter(Context context, String[] listProblema){
+    public ProblemaAdapter(Context context, List<Problema> listProblema){
         this.context = context;
         this.listProblema = listProblema;
         inflater = LayoutInflater.from(context);
@@ -31,7 +37,7 @@ public class ProblemaAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return listProblema.length;
+        return listProblema.size();
     }
 
     @Override
@@ -46,37 +52,39 @@ public class ProblemaAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView = inflater.inflate(R.layout.problema, null);
-        CheckBox problema = convertView.findViewById(R.id.problema_checkbox_problema);
-        problema.setText(listProblema[position]);
+        Problema problema = listProblema.get(position);
 
-        problema.setOnCheckedChangeListener(null);
+        convertView = inflater.inflate(R.layout.problema, null);
+        CheckBox problema_check = convertView.findViewById(R.id.problema_checkbox_problema);
+        TextView problema_txt = convertView.findViewById(R.id.problema_txt_nome);
+
+        problema_txt.setText(problema.getNome());
+
+        problema_check.setOnCheckedChangeListener(null);
+
+        isSelecionado = listSelectedProblema.contains(problema.getNome());
+        problema_check.setChecked(isSelecionado);
 
         if(listSelectedProblema.size() >= 3){
-            for(int i = 0; i < listSelectedProblema.size(); i++){
-                for (int j = 0; j < listProblema.length; j++){
-                    if (listSelectedProblema.get(i).equals(listProblema[j])){
-                        problema.setEnabled(true);
-                    } else {
-                        problema.setEnabled(false);
-                    }
-                }
-            }
+            problema_check.setEnabled(isSelecionado);
         }
-        problema.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        problema_check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(@NonNull CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
                     if(listSelectedProblema.size() < 3){
-                        listSelectedProblema.add(String.valueOf(problema.getText()));
+                        listSelectedProblema.add(problema.getNome());
+                        System.out.println(problema.getNome() + " - Adicionado");
                     }
                 } else{
-
+                    listSelectedProblema.remove(problema.getNome());
+                    System.out.println(problema.getNome() + " - Removido");
                 }
                 notifyDataSetChanged();
-                System.out.println(listProblema[position]);
             }
         });
+
+
         return convertView;
     }
 }

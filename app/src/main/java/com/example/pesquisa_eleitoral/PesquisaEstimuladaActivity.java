@@ -27,6 +27,8 @@ public class PesquisaEstimuladaActivity extends AppCompatActivity {
     List<Candidato> listCandidatos;
     Button btn_proxima;
 
+    String candidato_estimulada;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,7 @@ public class PesquisaEstimuladaActivity extends AppCompatActivity {
             return insets;
         });
 
+        candidato_estimulada = getIntent().getStringExtra("CANDIDATO_ESPONTANEA");
         btn_proxima = findViewById(R.id.pesquisaEstimulada_btn_confirmar);
         listView = findViewById(R.id.pesquisaEstimulada_lista);
         AppDatabase bd = AppDatabase.getInstance(this);
@@ -56,7 +59,7 @@ public class PesquisaEstimuladaActivity extends AppCompatActivity {
                 preencherCandidato("Nulo", "", "sem_imagem", 1, bd);
                 preencherCandidato("Não sei", "", "sem_imagem", 1, bd);
                 listCandidatos = bd.candidatoDAO().getAll();
-                System.out.println("Banco de dados Passou");
+                System.out.println("Inserção dos 'Candidatos' base concluida!");
             }
 
             runOnUiThread(()->{
@@ -79,6 +82,7 @@ public class PesquisaEstimuladaActivity extends AppCompatActivity {
             if(candidato_id != 0){
                 Intent i = new Intent(this, PesquisaProblemasActivity.class);
                 i.putExtra("ID_ESTIMULADA", candidato_id);
+                i.putExtra("CANDIDATO_ESPONTANEA", candidato_estimulada);
                 startActivity(i);
                 finish();
             } else{

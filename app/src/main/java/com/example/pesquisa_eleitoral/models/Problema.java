@@ -15,6 +15,9 @@ public class Problema {
     @ColumnInfo(name = "pro_nome")
     private String nome;
 
+    @ColumnInfo(name = "pro_qtdvoto")
+    private int qtdVotos;
+
     public int getId() {
         return id;
     }
@@ -29,5 +32,13 @@ public class Problema {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public int getQtdVotos() {
+        return qtdVotos;
+    }
+
+    public void setQtdVotos(int qtdVotos) {
+        this.qtdVotos = qtdVotos;
     }
 }

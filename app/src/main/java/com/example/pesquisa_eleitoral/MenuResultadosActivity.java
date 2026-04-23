@@ -18,7 +18,7 @@ public class MenuResultadosActivity extends AppCompatActivity {
 
     TextView txt_qtdpesquisas;
 
-    Button btn_eleitores, btn_resultados, btn_limpar;
+    Button btn_eleitores, btn_resultados, btn_limpar, btn_voltar;
 
     int countEleitor;
 
@@ -38,6 +38,7 @@ public class MenuResultadosActivity extends AppCompatActivity {
         btn_eleitores = findViewById(R.id.menuResultado_btn_eleitores);
         btn_resultados = findViewById(R.id.menuResultado_btn_resultados);
         btn_limpar = findViewById(R.id.menuResultado_btn_limpar);
+        btn_voltar = findViewById(R.id.menuResultado_btn_voltar);
 
         AppDatabase bd = AppDatabase.getInstance(this);
 
@@ -74,6 +75,12 @@ public class MenuResultadosActivity extends AppCompatActivity {
 
             }).start();
 
+        });
+
+        btn_voltar.setOnClickListener(v -> {
+            Intent i = new Intent(this, LoginActivity.class);
+            startActivity(i);
+            finish();
         });
 
     }

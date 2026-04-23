@@ -96,7 +96,7 @@ public class FinalizarActivity extends AppCompatActivity {
 
                     CharSequence text = "Pesquisa salva com sucesso!!";
                     int duration = Toast.LENGTH_SHORT;
-                    Toast toast = Toast.makeText(FinalizarActivity.this, text, duration);
+                    Toast toast = Toast.makeText(this, text, duration);
                     toast.show();
 
                     Intent i = new Intent(this, MenuPesquisasActivity.class);

@@ -74,6 +74,15 @@
             android:textSize="16sp"
             android:textStyle="italic" />
 
+        <Button
+            android:id="@+id/menuResultado_btn_voltar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="33dp"
+            android:layout_marginStart="260dp"
+            android:text="@string/btn_voltar"
+            android:backgroundTint="@color/black"/>
+
 
     </LinearLayout>
 

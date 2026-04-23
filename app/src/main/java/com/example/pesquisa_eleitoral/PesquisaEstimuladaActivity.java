@@ -27,7 +27,7 @@ public class PesquisaEstimuladaActivity extends AppCompatActivity {
     List<Candidato> listCandidatos;
     Button btn_proxima;
 
-    String candidato_estimulada;
+    String candidato_espontanea;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class PesquisaEstimuladaActivity extends AppCompatActivity {
             return insets;
         });
 
-        candidato_estimulada = getIntent().getStringExtra("CANDIDATO_ESPONTANEA");
+        candidato_espontanea = getIntent().getStringExtra("CANDIDATO_ESPONTANEA");
         btn_proxima = findViewById(R.id.pesquisaEstimulada_btn_confirmar);
         listView = findViewById(R.id.pesquisaEstimulada_lista);
         AppDatabase bd = AppDatabase.getInstance(this);
@@ -82,7 +82,7 @@ public class PesquisaEstimuladaActivity extends AppCompatActivity {
             if(candidato_id != 0){
                 Intent i = new Intent(this, PesquisaProblemasActivity.class);
                 i.putExtra("ID_ESTIMULADA", candidato_id);
-                i.putExtra("CANDIDATO_ESPONTANEA", candidato_estimulada);
+                i.putExtra("CANDIDATO_ESPONTANEA", candidato_espontanea);
                 startActivity(i);
                 finish();
             } else{

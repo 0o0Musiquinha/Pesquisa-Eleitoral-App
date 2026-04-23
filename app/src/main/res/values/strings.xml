@@ -4,6 +4,7 @@
 
     <!--Standard-->
     <string name="btn_confirmar">Confirmar</string>
+    <string name="btn_voltar">Voltar</string>
 
     <!--LOGIN-->
     <string name="login_img_contentDescription">Imagem de uma urna com edições que a tornam "fofa"</string>
@@ -64,6 +65,17 @@
     <string name="menuResultado_btn_resultados">RESULTADOS</string>
     <string name="menuResultado_btn_limpar">LIMPAR DADOS</string>
     <string name="menuResultado_txt_aviso">AVISO: Ao apertar o botão todos os dados de pesquisa salvos serão apagados salvos serão apagados</string>
+
+    <!--ELEITOR-->
+    <string name="eleitor_txt_titulo">Eleitor 1</string>
+    <string name="eleitor_txt_nome">Nome do eleitor</string>
+    <string name="eleitor_txt_celular">Celular do eleitor</string>
+    <string name="eleitor_txt_datahora">Data e hora da pesquisa</string>
+    <string name="eleitor_txt_latitude">Latitude</string>
+    <string name="eleitor_txt_longitude">Longitude</string>
+
+    <!--ELEITORES-->
+    <string name="eleitores_txt_titulo">Entrevistados</string>
 
 
 </resources>

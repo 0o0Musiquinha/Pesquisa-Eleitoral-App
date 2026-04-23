@@ -7,4 +7,74 @@
     android:layout_height="match_parent"
     tools:context=".MenuResultadosActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="30dp"
+        android:paddingTop="60dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <TextView
+            android:id="@+id/menuResultado_txt_titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/menuResultado_txt_titulo"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/menuResultado_txt_qtdPesquisas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginBottom="80dp"
+            android:textSize="15sp"
+            android:text="@string/menuResultado_txt_qtdPesquisas" />
+
+        <Button
+            android:id="@+id/menuResultado_btn_eleitores"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="50dp"
+            android:text="@string/menuResultado_btn_eleitores" />
+
+        <Button
+            android:id="@+id/menuResultado_btn_resultados"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="90dp"
+            android:text="@string/menuResultado_btn_resultados" />
+
+        <Button
+            android:id="@+id/menuResultado_btn_limpar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:text="@string/menuResultado_btn_limpar"
+            android:backgroundTint="@color/red"/>
+
+        <TextView
+            android:id="@+id/menuResultado_txt_aviso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:text="@string/menuResultado_txt_aviso"
+            android:textAlignment="inherit"
+            android:textColor="@color/red"
+            android:textSize="16sp"
+            android:textStyle="italic" />
+
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

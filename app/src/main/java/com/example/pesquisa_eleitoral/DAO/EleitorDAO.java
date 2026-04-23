@@ -21,6 +21,9 @@ public interface EleitorDAO {
     @Query("SELECT * FROM eleitor WHERE ele_nome = :nome")
     Eleitor findByName(String nome);
 
+    @Query("SELECT COUNT(*) FROM eleitor")
+    int countEleitor();
+
     @Insert
     void insert(Eleitor eleitores);
 

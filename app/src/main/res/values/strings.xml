@@ -57,5 +57,13 @@
 
     <string name="finalizar_btn_finalizar">Finalizar</string>
 
+    <!--MENU RESULTADOS-->
+    <string name="menuResultado_txt_titulo">Resultado da Pesquisa</string>
+    <string name="menuResultado_txt_qtdPesquisas">Qtd. de pessoas entrevistadas: </string>
+    <string name="menuResultado_btn_eleitores">ELEITORES</string>
+    <string name="menuResultado_btn_resultados">RESULTADOS</string>
+    <string name="menuResultado_btn_limpar">LIMPAR DADOS</string>
+    <string name="menuResultado_txt_aviso">AVISO: Ao apertar o botão todos os dados de pesquisa salvos serão apagados salvos serão apagados</string>
+
 
 </resources>

@@ -22,6 +22,9 @@ public interface EleitorDAO {
     Eleitor findByName(String nome);
 
     @Insert
+    void insert(Eleitor eleitores);
+
+    @Insert
     void insertAll(Eleitor... eleitores);
 
     @Delete

@@ -19,7 +19,7 @@
 
         <TextView
             android:id="@+id/problema_txt_nome"
-            android:layout_width="120dp"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:text="@string/problema_checkbox_problema" />
     </LinearLayout>

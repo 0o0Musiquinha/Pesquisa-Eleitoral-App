@@ -23,6 +23,12 @@ public interface ProblemaDAO {
 
     @Insert
     void insert(Problema problemas);
+    @Query("UPDATE problema " +
+            "SET pro_qtdvoto = (pro_qtdvoto + 1)" +
+            "WHERE pro_nome = :nome"
+    )
+    void updateVotos(String nome);
+
 
     @Insert
     void insertAll(Problema... problemas);

@@ -24,6 +24,12 @@ public interface CandidatoDAO {
     @Insert
     void insert(Candidato candidato);
 
+    @Query("UPDATE candidato " +
+            "SET can_qtdvotos = (can_qtdvotos + 1)" +
+            "WHERE can_id = :id"
+    )
+    void updateVotos(int id);
+
     @Update
     void update(Candidato candidato);
 

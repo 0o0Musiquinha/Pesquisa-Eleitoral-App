@@ -43,9 +43,13 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
+
     /*Room*/
     val room_version = "2.8.4"
     implementation("androidx.room:room-runtime:${room_version}")
     annotationProcessor("androidx.room:room-compiler:$room_version")
+
+    /*Fuzed Location Provider*/
+    implementation("com.google.android.gms:play-services-location:21.3.0")
 
 }

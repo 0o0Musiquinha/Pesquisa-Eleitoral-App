@@ -46,10 +46,16 @@
 
     <!--FINALIZAR-->
     <string name="finalizar_txt_titulo">DADOS DO ENTREVISTADO</string>
+
     <string name="finalizar_txt_nome">Nome do Entrevistado: </string>
     <string name="finalizar_hint_nome">Entrevistado</string>
+
     <string name="finalizar_txt_celular">Celular: </string>
     <string name="finalizar_hint_celular">999999999</string>
+
+    <string name="finalizar_txt_aviso">AVISO: caso o entrevistado não queira se identificar, basta não preencher os campos acima</string>
+
     <string name="finalizar_btn_finalizar">Finalizar</string>
+
 
 </resources>

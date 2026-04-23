@@ -20,7 +20,7 @@
             android:id="@+id/finalizar_txt_titulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="60dp"
             android:text="@string/finalizar_txt_titulo"
             android:textAlignment="center"
             android:textSize="30sp"
@@ -69,6 +69,19 @@
             android:ems="10"
             android:hint="@string/finalizar_hint_celular"
             android:inputType="phone" />
+
+        <TextView
+            android:id="@+id/finalizar_txt_aviso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="60dp"
+            android:text="@string/finalizar_txt_aviso"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:textAlignment="inherit"
+            android:textColor="@color/red"/>
 
         <Button
             android:id="@+id/finalizar_btn_finalizar"

@@ -56,7 +56,7 @@ public class PesquisaProblemasActivity extends AppCompatActivity {
                 preencherProblemas("Moradia", 0, bd);
                 preencherProblemas("Urbanização", 0, bd);
                 preencherProblemas("Corrupição", 0, bd);
-                preencherProblemas("Escala", 0, bd);
+                preencherProblemas("Escala de Trabalho", 0, bd);
                 preencherProblemas("Sálario Mínimo", 0, bd);
                 preencherProblemas("Insegurança Alimentar", 0, bd);
                 listProblema = bd.problemaDAO().getAll();

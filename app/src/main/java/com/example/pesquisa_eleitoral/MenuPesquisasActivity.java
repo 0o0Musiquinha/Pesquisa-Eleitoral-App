@@ -12,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MenuPesquisasActivity extends AppCompatActivity {
 
-    Button btn_iniciar, btn_fechar;
+    Button btn_iniciar, btn_fechar, btn_voltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,7 @@ public class MenuPesquisasActivity extends AppCompatActivity {
 
         btn_iniciar = findViewById(R.id.pesquisa_btn_iniciar);
         btn_fechar = findViewById(R.id.pesquisa_btn_fechar);
+        btn_voltar = findViewById(R.id.menuPesquisa_btn_voltar);
 
         btn_iniciar.setOnClickListener(v -> {
             Intent i = new Intent(this, PesquisaEspontaneaActivity.class);
@@ -36,6 +37,12 @@ public class MenuPesquisasActivity extends AppCompatActivity {
 
         btn_fechar.setOnClickListener(v -> {
             finishAndRemoveTask();
+        });
+
+        btn_voltar.setOnClickListener(v -> {
+            Intent i = new Intent(this, LoginActivity.class);
+            startActivity(i);
+            finish();
         });
 
     }

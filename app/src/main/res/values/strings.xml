@@ -77,5 +77,8 @@
     <!--ELEITORES-->
     <string name="eleitores_txt_titulo">Entrevistados</string>
 
+    <!--RESULTADOS-->
+    <string name="resultados_txt_titulo">Resultados</string>
+
 
 </resources>
